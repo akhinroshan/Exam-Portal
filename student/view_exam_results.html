@@ -1,0 +1,27 @@
+{% extends 'student.html' %}
+{% block body %}
+<form action="" method="get">
+<table class="table table-bordered">
+  <tr>
+    <th>#</th>
+    <th width="113">Exam Name</th>
+    <th>Subject</th>
+    <th>Semester</th>
+    <th>Exam Type</th>
+    <th>Result</th>
+
+  </tr>
+  {% for i in result %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;{{ i['exam_name'] }}</td>
+    <td>&nbsp;{{ i['sub_name'] }}</td>
+    <td>{{ i['sub_sem'] }}</td>
+    <td>{{ i['type'] }}</td>
+    <td>&nbsp;{{ i['result'] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+</form>
+{% endblock %}

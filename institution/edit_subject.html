@@ -1,0 +1,37 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/edit_subj_post">
+  <table class="table table-bordered">
+    <tr>
+      <th>Course <input type="hidden" name="idd" value="{{ course }}"/></th>
+      <td >
+        <select name="course" id="department" class="form-control">
+          {% for i in course %}
+          {% if i['course_id'] == subject['course_id'] %}
+          <option value = "{{ i['course_id'] }}" selected>{{ i['course_name'] }}</option>
+          {% else %}
+          <option value = "{{ i['course_id'] }}">{{ i['course_name'] }}</option>
+          {% endif %}
+          {% endfor %}
+      </select></td>
+    </tr>
+
+    <tr>
+      <th>Semester <input type="hidden" name="semester" value="{{ subject['semester'] }}"/> </th>
+      <td><input type="range" name="sem" value="{{ subject['semester'] }}" min="1" max="8" oninput="this.nextElementSibling.value = this.value">
+        <output>{{ subject['semester'] }}</output></td>
+    </tr>
+
+    <tr>
+      <th>Subject Name <input type="hidden" name="sub_id" value="{{ subject['sub_id'] }}"/> </th>
+      <td><input type="text" name="subject" id="subject" value="{{ subject['sub_name'] }}" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" id="Submit" value="Update" class="btn btn-success" />
+<!--        <input type="submit" name="Reset" id="Reset" value="Reset" />-->
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

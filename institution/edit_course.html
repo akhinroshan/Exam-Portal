@@ -1,0 +1,29 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/edit_course_post">
+  <table class="table table-bordered" >
+    <tr>
+      <th>Department Name</td>
+      <td >
+        <select name="Department" id="Department" class="form-control">
+          <option value="{{ course['dept_id'] }}">{{ course['dname'] }}</option>
+          <option>--select--</option>
+          {% for i in dept %}
+          <option value="{{ i['dept_id'] }}">{{ i['dname'] }}</option>
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <th>Course Name <input type="hidden" name="c_id" value="{{ course['course_id'] }}"/></th>
+      <td>
+      <input type="text" name="Course" id="Course" value="{{ course['course_name'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" id="Submit" value="Update" class="btn btn-success"   />
+<!--        <input type="submit" name="Reset" id="Reset" value="Reset" />-->
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

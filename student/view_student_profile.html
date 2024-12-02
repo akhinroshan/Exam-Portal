@@ -1,0 +1,52 @@
+{% extends 'student.html' %}
+{% block body %}
+<form action="" method="get" enctype="multipart/form-data">
+<table class="table table-bordered">
+ 
+  <tr>
+
+    <th width="78">Name</th>
+    <td width="82">&nbsp;<img src="{{ res['image'] }}" alt="img"  height="100%" width="100%" > <br/> {{ res['name'] }}</td>
+
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td width="507">{{ res['gender'] }}&nbsp;</td>
+  </tr>
+  <tr>
+    <th>Date of Birth</th>
+    <td>{{ res['dob'] }}&nbsp;</td>
+  </tr>
+
+  <tr>
+    <th height="111">Semester</th>
+    <td>&nbsp;{{res['semester']}}</td>
+    
+  </tr>
+  <tr>
+    <th>Department</th>
+    <td>{{ res['dname']  }}&nbsp;</td>
+  </tr>
+  <tr>
+    <th>Course</th>
+    <td>{{ res['course_name']  }}&nbsp;</td>
+  </tr>
+  <tr>
+    <th height="111">Address</th>
+    <td>{{ res['place']  }} <br> {{ res['post']  }} <br> {{ res['district']  }} <br> {{ res['pin']  }}&nbsp;</td>
+  </tr>
+  <tr>
+    <th>Guardian Name</th>
+    <td>{{ res['par_name']  }}&nbsp;</td>
+  </tr>
+  <tr>
+    <th>Email of Guardian</th>
+    <td>&nbsp;{{ res['par_email']  }}</td>
+  </tr>
+  <tr>
+    <th>Contact Number of Guardian</th>
+    <td>{{ res['phone']  }}&nbsp;</td>
+  </tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'hod.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Exam Name</th>
+      <th>Subject</th>
+      <th>Semester</th>
+      <th>Portions</th>
+      <th>Exam Type</th>
+      <th>Exam Date &amp; Time</th>
+      
+    </tr>
+    {% for i in exam %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['exam_name'] }}</td>
+      <td >&nbsp;{{ i['sub_name'] }}</td>
+      <td>{{ i['semester'] }}</td>
+      <td>&nbsp;{{ i['portions'] }}</td>
+      <td>{{ i['type'] }}</td>
+      <td>&nbsp;{{ i['exam_time'] }} <br/> {{ i['exam_date'] }}</td>
+      <td><a href="/hod_view_result/{{ i['exam_id'] }}" class="btn btn-success">Results</a> </td>
+    {% endfor %}
+    </tr>
+  </table>
+</form>
+{% endblock %}

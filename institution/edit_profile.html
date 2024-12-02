@@ -1,0 +1,67 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/edit_profile_post" enctype="multipart/form-data">
+  <table class="table table-bordered">
+    <tr>
+      <td colspan="2" align="center"><img src="{{ profile['image'] }}" width="70%" height="70%"></td>
+    </tr>
+    <tr>
+
+    <tr>
+      <th>Image <input type="hidden" name="i_id" value="{{ profile['inst_id'] }}" class="form-control" /></th>
+      <td><input type="file" name="filefield" id="filefield" value="{{ profile['image'] }}" class="form-control" ></td>
+    </tr>
+    <tr>
+      <th>Institution Name</th>
+      <td>
+      <input type="text" name="institution" id="institution" value="{{ profile['name'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Place</th>
+      <td><label for="place"></label>
+      <input type="text" name="place" id="place" value="{{ profile['place'] }}" class="form-control" /></td>
+    </tr>
+    <tr>
+      <th>Pin</th>
+      <td><label for="pin"></label>
+      <input type="text" name="pin" id="pin" value="{{ profile['pin'] }}" class="form-control" /></td>
+    </tr>
+    <tr>
+      <th> Post</th>
+      <td><label for="post"></label>
+      <input type="text" name="post" id="post" value="{{ profile['post'] }}" class="form-control"/></td>
+    </tr>
+    <tr>
+      <th>District</th>
+      <td><label for="district"></label>
+      <input type="text" name="district" id="district" value="{{ profile['district'] }}" class="form-control"/></td>
+    </tr>
+    <tr>
+      <th>Contact1</th>
+
+      <td><input type="text" name="contact1" id="contact1" value="{{ profile['contact1'] }}" class="form-control"/></td>
+    </tr>
+     <th>Contact2</th>
+
+      <td><input type="text" name="contact2" id="contact2" value="{{ profile['contact2'] }}" class="form-control"/></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><label for="email"></label>
+      <input type="text" name="email" id="email" value="{{ profile['email'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Website</th>
+      <td><label for="textfield"></label>
+      <input type="text" name="website" id="textfield" value="{{ profile['website'] }}" class="form-control"/></td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" id="Submit" value="Submit" class="btn btn-success" />
+<!--        <input type="submit" name="Reset" id="Reset" value="Reset"  />-->
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

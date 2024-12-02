@@ -1,0 +1,19 @@
+{% extends 'teacher.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/t_send_complaint_post">
+<table class="table table-bordered">
+  <tr>
+    <td>Complaint</td>
+  </tr>
+  <tr>
+    <td>
+      <textarea name="Complaint" id="Complaint" cols="45" rows="5" class="form-control" required></textarea></td>
+  </tr>
+  <tr>
+    <td><div align="center">
+      <input type="submit" name="SEND" id="SEND" value="Submit" class="form-control" required/>
+    </div></td>
+  </tr>
+</table>
+</form>
+{% endblock %}

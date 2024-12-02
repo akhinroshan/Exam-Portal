@@ -1,0 +1,19 @@
+{% extends 'student.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr>
+      <th width="59" height="37">#</th>
+      <th width="169">Notification</th>
+      <th width="87">Date &amp; Time</th>
+    </tr>
+    {% for i in res %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>&nbsp;{{ i['notification'] }}</td>
+      <td>{{ i['date'] }}</td>
+  </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

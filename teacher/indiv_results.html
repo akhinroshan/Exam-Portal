@@ -1,0 +1,22 @@
+{% extends 'teacher.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+</form>
+  <table  class="table table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Student Name</th>
+      <th>Results</th>
+
+    </tr>
+    {% for i in student %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>{{ i['name'] }}</td>
+      <td> <a href="/indiv_results_sub/{{ i['stud_id'] }}" class="btn btn-success">View</a></td>
+
+
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

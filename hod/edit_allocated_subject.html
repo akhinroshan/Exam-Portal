@@ -1,0 +1,58 @@
+{% extends 'hod.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/hod_sub_alloc_edit_post">
+  <table class="table table-bordered">
+    <tr>
+      <th>Course <input type="hidden" name="idd" value="{{ alloc }}"></th>
+      <td>
+        <select name="course" id="course" class="form-control" required>
+          {% for i in course %}
+
+          {% if i['course_id'] == res['course_id'] %}
+
+
+
+          <option value="{{ i['course_id'] }}" selected>{{ i['course_name'] }}</option>
+          {% else %}
+
+          <option value="{{ i['course_id'] }}" >{{ i['course_name'] }}</option>
+
+          {% endif %}
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <th>Subject</th>
+      <td>
+        <select name="subject" id="subject" class="form-control" required>
+          {% for i in subject %}
+
+          {% if i['sub_id'] == res['sub_id'] %}
+          <option value="{{ i['sub_id'] }}" selected>{{ i['sub_name'] }}</option>
+
+          {% else %}
+          <option value="{{ i['sub_id'] }}">{{ i['sub_name'] }}</option>
+          {% endif %}
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <th>Teacher</th>
+      <td>
+        <select name="teacher" id="teacher" class="form-control" required>
+          {% for i in teacher %}
+
+          {% if i['teach_id'] == res['teach_id'] %}
+          <option value="{{ i['teach_id'] }}" selected>{{ res['name'] }}</option>
+          {% else %}
+          <option value="{{ i['teach_id'] }}">{{ i['name'] }}</option>
+          {% endif %}
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td height="45" colspan="2"><input type="submit" name="button" id="button" value="Update" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

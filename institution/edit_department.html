@@ -1,0 +1,17 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/edit_dept_post">
+  <table class="table table-bordered">
+    <tr>
+      <th>Department Name <input type="hidden" name="d_id" value="{{ dept['dept_id'] }}"/></th>
+      <td>
+      <input type="text" name="Department" id="Department" value="{{ dept['dname'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" id="Submit" value="Update" class="btn btn-success" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

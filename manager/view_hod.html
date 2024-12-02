@@ -1,0 +1,43 @@
+{% extends 'manager.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/m_view_hod_post" enctype="multipart/form-data">
+  <table class="pull-right" style="width:500px">
+    <tr>
+      <td>
+      <input type="text" name="text" id="text" class="form-control"/></td>
+      <td width="80"><input type="submit" name="Search" id="Search" value="SEARCH" class="btn btn-success"/></td>
+    </tr>
+
+
+
+  </table>
+  <p>&nbsp;</p>
+  <table class="pull-right table-bordered" style="width:1180px">
+    <tr>
+      <th>#</th>
+      <th>HOD Name</th>
+      <th>DOB</th>
+      <th>Gender</th>
+      <th>Department</th>
+      <th>Qualification</th>
+      <th>Contact</th>
+      <th>Address</th>
+
+    </tr>
+    {% for i in teacher %}
+    <tr>
+      <td>&nbsp;{{loop.index}}</td>
+      <td><img src="{{ i['image'] }}" width="100px" height="100px"/><br>{{ i['name'] }}</td>
+      <td>{{ i['dob'] }}</td>
+      <td>{{ i['gender'] }}</td>
+      <td>{{ i['dname'] }}</td>
+      <td>{{ i['qualification'] }}</td>
+      <td>{{ i['contact1'] }} <br/> {{ i['contact2'] }}</td>
+      <td>{{i['place']}}<br/>{{i['post']}}<br/>{{i['district']}}<br/>{{i['pin']}}</td>
+
+    </tr>
+    {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}

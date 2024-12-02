@@ -1,0 +1,436 @@
+{% extends 'student.html' %}
+{% block body %}
+
+
+<body>
+    <div class="jumbotron" style="margin-top:20px;padding:20px;">
+        <p><span id="errorMsg"></span></p>
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Here we streaming video from webcam -->
+                <h4>
+                    Video coming from Webcam  <button class="btn btn-primary" id="btnCapture">Capture to Canvas >></button>
+                </h4>
+                <video id="video" playsinline autoplay></video>
+            </div>
+    
+            <div class="col-lg-6">
+                <h4>
+                    Captured image from Webcam <input type="button" class="btn btn-primary" id="btnSave" name="btnSave" value="Save the canvas(image) to server" />
+                </h4>
+                <!-- Webcam video snapshot -->
+                <canvas style="border:solid 1px #ddd;background-color:white;" id="canvas" width="475" height="475"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="question-div" id="question-div">
+
+                    <button class="btn" id="save_ans" onclick="a()">Recognise</button>
+{#                    <button class="btn" id="save_ans" onclick="window.location='/st_exam/{{ eid }}'">Next</button>#}
+{#                    <button class="btn" id="save_ans" onclick="b()">Next</button>#}
+
+        <!-- <div class="form-group">
+{#            <button class="btn" id="save_ans">Submit Answer</button>#}
+{#        </div> -->#}
+        <div class="paginetor">
+          <div class="form-group">
+
+          </div>
+
+        <!-- <input type='submit' value='ok' id='bt' atr="1.id">
+        <input type='submit' value='Finish' id='finish'> -->
+
+
+    </div>
+
+
+
+{#####start}#}
+<script type="text/javascript" src="/static/webcam/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/static/webcam/bootstrap.js"></script>
+<script type="text/javascript" src="/static/jquery.js"></script>
+
+
+<script type="text/javascript" src="/static/webcam/modernizr-2.8.3.js"></script>
+
+<script type="text/javascript">
+    window.onload = initall;
+    var  saveBookButton ;
+    function initall() {
+        saveBookButton=document.getElementById('submitAnswer')
+{#        saveBookButton.onclick = save;#}
+
+
+    }
+
+        // Below code to capture image from Video tag (Webcam streaming)
+    function a() {
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        // Capture the image into canvas from Webcam streaming Video element
+        context.drawImage(video, 0, 0);
+
+
+    }
+
+    // Upload image to server - ajax call - with the help of base64 data as a parameter
+{#    function b(){#}
+{##}
+{#        // Below new canvas to generate flip/mirron image from existing canvas#}
+{#        var destinationCanvas = document.createElement("canvas");#}
+{#        var destCtx = destinationCanvas.getContext('2d');#}
+{##}
+{##}
+{#        destinationCanvas.height = 500;#}
+{#        destinationCanvas.width = 500;#}
+{##}
+{#        destCtx.translate(video.videoWidth, 0);#}
+{#        destCtx.scale(-1, 1);#}
+{#        destCtx.drawImage(document.getElementById("canvas"), 0, 0);#}
+{##}
+{#        // Get base64 data to send to server for upload#}
+{#        var imagebase64data = destinationCanvas.toDataURL("image/png");#}
+{##}
+{##}
+{##}
+{#        imagebase64data = imagebase64data.replace('data:image/png;base64,', '');#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#        alert(imagebase64data);#}
+{##}
+{#        $.ajax({#}
+{#            type: 'POST',#}
+{#            dataType:'json',#}
+{#            url: '/image',#}
+{#            data:  imagebase64data ,#}
+{#            processData:false,#}
+{#            contentType: 'application/json',#}
+{##}
+{##}
+{#            success: function (out) {#}
+{#        console.log('Image uploaded successfully..')#}
+{#            }#}
+{##}
+{#        });#}
+}
+
+
+
+
+
+
+</script>
+
+
+
+<style type="text/css">
+@media only screen and (max-width: 1200px) {
+    header{
+        flex-direction: column;
+    }
+    
+    .logo-container{
+        position: absolute;
+        left: 10vw;
+        font-size: 0.86rem;
+    }
+    header .nav-links{
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    header .dropdown{
+        width: 100%;
+        padding:0;
+    }
+    header .login,.acc-container,.login-btn{
+        width: 100%;
+    }
+    .btn-logout{
+        display: none; 
+        
+    }
+  }
+
+.welcome-div{
+    margin-top: auto;
+}
+    
+.question-div{
+    margin-top: -5vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 450px;
+
+}
+main .question-div h1{
+    font-size: 45px;
+    color: #fd6742;
+
+}
+
+main .question-div p{
+    font-size: 22px;
+    padding-top: 40px;  
+    color: #676d6d;
+}
+
+.btn{
+    max-width: fit-content;
+    margin-top: 40px;
+    background-color:#0cb969;
+    font-size: 16px;
+    font-weight: bold;
+    padding:12px 35px;
+    color: white;
+    border: none;
+}
+.btn-logout{
+    max-width: fit-content;
+    margin-top: 40px;
+    color:#0cb969;
+    font-size: 16px;
+    font-weight: bold;
+    padding:12px 35px;
+    background-color: #f6f7f7;
+    border: none;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+.options ul li{
+    color: #676d6d;
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 50px;
+  }
+  
+ .options ul li input[type=radio]{
+    position: absolute;
+    visibility: hidden;
+  }
+  
+ .options ul li label{
+    display: block;
+    position: relative;
+    font-weight: 300;
+    font-size: 1.35em;
+    padding: 25px 25px 25px 30px;
+    margin: 10px auto 0 auto;
+    height: 10px;
+    z-index: 9;
+    cursor: pointer;
+    -webkit-transition: all 0.25s linear;
+  }
+  
+  .options ul li:hover label{
+      color: #fd6742;
+  }
+  
+  .options ul li .check{
+    display: block;
+    position: absolute;
+    border: 5px solid #AAAAAA;
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    top: 30px;
+    left: 20px;
+      z-index: 5;
+      transition: border .25s linear;
+      -webkit-transition: border .25s linear;
+  }
+  
+  .options ul li:hover .check {
+    border: 5px solid #fd6742;
+  }
+  
+  .options ul li .check::before {
+    display: block;
+    position: absolute;
+      content: '';
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    top: 5px;
+      left: 5px;
+    margin: auto;
+      transition: background 0.25s linear;
+      -webkit-transition: background 0.25s linear;
+  }
+  
+  input[type=radio]:checked ~ .check {
+    border: 5px solid #fd6742;
+  }
+  
+  input[type=radio]:checked ~ .check::before{
+    background: #fd6742;
+  }
+  
+  input[type=radio]:checked ~ label{
+    color: #fd6742;
+  }
+
+/* Flipping the video as it was not mirror view */
+video {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    border-radius: 100vh;
+    border:3px solid #fd6742;
+    height:150px;
+}
+
+/* Flipping the canvas image as it was not mirror view */
+#canvas {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    display: none;
+}
+h4{
+    display:none;
+}
+video#video {
+    margin-bottom: 4vh;
+}   
+</style>
+
+
+
+<script type="text/javascript">
+    var video = document.querySelector("#video");
+
+    // Basic settings for the video to get from Webcam
+    const constraints = {
+        audio: false,
+        video: {
+            width: 475, height: 475
+        }
+    };
+
+    // This condition will ask permission to user for Webcam access
+    if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then(function (stream) {
+                video.srcObject = stream;
+            })
+            .catch(function (err0r) {
+                console.log("Something went wrong!");
+            });
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    // Below code to capture image from Video tag (Webcam streaming)
+   function a() {
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        // Capture the image into canvas from Webcam streaming Video element
+        context.drawImage(video, 0, 0);
+
+        b();
+    }
+
+    // Upload image to server - ajax call - with the help of base64 data as a parameter
+    function b(){
+
+
+
+        // Below new canvas to generate flip/mirron image from existing canvas
+        var destinationCanvas = document.createElement("canvas");
+        var destCtx = destinationCanvas.getContext('2d');
+
+
+        destinationCanvas.height = 500;
+        destinationCanvas.width = 500;
+
+        destCtx.translate(video.videoWidth, 0);
+        destCtx.scale(-1, 1);
+        destCtx.drawImage(document.getElementById("canvas"), 0, 0);
+
+        // Get base64 data to send to server for upload
+        var imagebase64data = destinationCanvas.toDataURL("image/png");
+        imagebase64data = imagebase64data.replace('data:image/png;base64,', '');
+
+
+{#        alert(imagebase64data);#}
+{#        alert(imagebase64data);#}
+         $.ajax({
+             type: 'POST',
+             dataType: 'json',
+             url: '/image',
+             data: imagebase64data,
+             processData: false,
+             contentType: 'application/json',
+
+
+             success: function (out) {
+
+
+                 var a = out['status'];
+                 if (a == "ok")
+                 {
+             window.location = "/st_exam/{{ session.examid }}";
+    }
+    else
+                 {
+                     alert('Not Matched')
+                     window.location="/";
+                 }
+
+
+
+            }
+
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+{####################################end}#}
+{##}
+
+
+
+
+<div id="upload_results" style="background-color:#eee;"></div>
+
+
+</body>
+</html>
+<script src="/static/jquery.js"></script>
+
+{% endblock %}
+
+
+

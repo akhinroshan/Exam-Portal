@@ -1,0 +1,42 @@
+{% extends 'teacher.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="pull-right" style="width:500px">
+    <tr>
+      <td>
+      <input type="text" name="text" id="text" class="form-control"/></td>
+      <td><input type="submit" name="Search" id="Search" value="SEARCH" class="btn btn-success"/></td>
+    </tr>
+  </table>
+  <br>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Student Name</th>
+      <th><p>Gender</p></th>
+      <th>Date of Birth</th>
+      <th>Course</th>
+      <th>Semester</th>
+
+
+      <td colspan="2">&nbsp;</td>
+    </tr>
+
+    {% for i in student%}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;<img src="{{ i['image'] }}" width="100px" height="100px"/><br/>{{ i['name'] }}</td>
+      <td>&nbsp;{{ i['gender'] }}</td>
+      <td>&nbsp;{{ i['dob'] }}</td>
+      <td>&nbsp;{{ i['course_name'] }}</td>
+      <td>&nbsp;{{ i['semester'] }}</td>
+      <td><a href="/teacher_videocall/{{ i['stud_id'] }}" class="btn btn-info">Start Viva</a></td>
+
+
+
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

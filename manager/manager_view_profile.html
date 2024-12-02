@@ -1,0 +1,41 @@
+{% extends 'manager.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="" enctype="multipart/form-data">
+  <table class="table table-bordered">
+    <tr>
+      <th width="105"> Name</th>
+      <td width="95">&nbsp;
+        <img src="{{ profile['image'] }}" alt="img"  height="100%" width="100%" >
+        {{ profile['name'] }}</td>
+    </tr>
+    <tr>
+      <th>Date of Birth</th>
+      <td>&nbsp;{{ profile['dob'] }}</td>
+
+    <tr>
+    <th>Gender</th>
+    <td>&nbsp;{{ profile['gender'] }}</td>
+  </tr>
+    <tr>
+      <th>Qualification</th>
+      <td>{{ profile['qualification'] }}</td>
+    </tr>
+    <tr>
+      <th>Contact</th>
+      <td>{{ profile['contact1'] }} <br/>{{ profile['contact2'] }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{ profile['email'] }}</td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td>{{ profile['place'] }}<br/> {{ profile['post'] }} <br/> {{ profile['district'] }} <br/>{{  profile['pin'] }}</td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+      <a href="/m_edit_profile" class="btn btn-info">Edit Profile</a></div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

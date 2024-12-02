@@ -1,0 +1,25 @@
+{% extends 'hod.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered" >
+    <tr>
+      <th>#</th>
+      <th>Complaint</th>
+
+      <th>Date &amp; Time</th>
+      <th>Reply Status</th>
+      <th>Reply</th>
+    </tr>
+    {% for i in reply %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['complaint'] }}</td>
+
+      <td>&nbsp;{{ i['time'] }} <br/> {{ i['date'] }}</td>
+      <td>&nbsp;{{ i['status'] }}</td>
+      <td>&nbsp;{{ i['reply'] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

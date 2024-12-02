@@ -1,0 +1,34 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/view_subj_post">
+
+<table class="pull-right" style="width:500px">
+  <tr>
+    <td>
+      <input type="text" name="TEXT" id="TEXT" class="form-control"/></td>
+    <td><input type="submit" name="SEARCH" id="SEARCH" value="SEARCH" class="btn btn-success"/></td>
+  </tr>
+</table>
+  <br>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Course</th>
+      <th>Subjects</th>
+      <th>Semester</th>
+      <th>&nbsp;</th>
+    </tr>
+    {%for i in subject%}
+    <tr>
+      <td>&nbsp;{{ loop.index}}</td>
+      <td>&nbsp;{{ i['course_name'] }}</td>
+      <td>&nbsp;{{ i['sub_name'] }}</td>
+      <td>&nbsp;{{ i['semester'] }}</td>
+      <td><p><a href="/edit_subject/{{ i['sub_id'] }}/{{ i['course_id'] }}" class="btn btn-info">Edit</a></p></td>
+      <td><p><a href="/delete_subject/{{ i['sub_id'] }}" class="btn btn-danger" onclick="return confirm('Do you want to delete this?')">Delete</a></p></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

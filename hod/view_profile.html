@@ -1,0 +1,42 @@
+{% extends 'hod.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr>
+      <th width="75">Name</th>
+      <td width="82">&nbsp;<img src="{{ hod['image'] }}" alt="img"  height="100%" width="100%" >{{ hod['name'] }}</td>
+    </tr>
+    <tr>
+      <th>Department</th>
+      <td>&nbsp;{{ hod['dname'] }}</td>
+    </tr>
+    <tr>
+      <th>Date of Birth</th>
+      <td>&nbsp;{{ hod['dob'] }}</td>
+    </tr>
+    <tr>
+      <th>Gender</th>
+      <td>&nbsp;{{ hod['gender'] }}</td>
+    </tr>
+    <tr>
+      <th>Qualification</th>
+      <td>&nbsp;{{ hod['qualification'] }}</td>
+    </tr>
+    <tr>
+      <th>Contact</th>
+      <td>&nbsp;{{ hod['contact1'] }} <br/>{{ hod['contact2'] }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>&nbsp;{{ hod['email'] }}</td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td>&nbsp;{{ hod['place'] }}<br/> {{ hod['post'] }}<br/> {{ hod['district'] }}<br/> {{ hod['pin'] }}<br/> </td>
+    </tr>
+    <tr>
+      <td colspan="2"><a href="/hod_edit_profile" class="btn btn-info">Edit Profile</a></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

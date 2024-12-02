@@ -1,0 +1,33 @@
+{% extends 'teacher.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="t_upload_viva_result_post">
+  <table class="table table-bordered">
+    <tr>
+      <th width="101">#</th>
+      <td width="68">&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Student Name</th>
+      <td>&nbsp;</td>
+    </tr
+    <tr>
+      <th>Status</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Grade</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>Total Marks</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Upload" id="Upload" value="Upload" class="btn btn-success"/>
+<!--        <input type="submit" name="Reset" id="Reset" value="Reset" />-->
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

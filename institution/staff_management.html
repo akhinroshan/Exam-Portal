@@ -1,0 +1,43 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/staff_mang_post">
+  <table class="table table-bordered">
+    <tr>
+      <th width="107">Teacher Name</th>
+      <td width="152">
+      <input type="text" name="teacher" id="teacher" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Department </th>
+      <td>
+        <select name="department" id="department" class="form-control" required>
+      </select></td>
+    </tr>
+    <tr>
+      <th>Date of Birth</th>
+      <td><input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Qualification</th>
+      <td>
+      <input type="text" name="qualification" id="qualification" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Contact</th>
+      <td>
+      <input type="text" name="contact" id="contact" class="form-control" /></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>
+      <input type="text" name="email" id="email" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" id="Submit" value="Add" class="btn btn-success" />
+        <input type="submit" name="Reset" id="Reset" value="Reset" class="btn btn-info"/>
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

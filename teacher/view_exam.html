@@ -1,0 +1,29 @@
+{% extends 'teacher.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/t_view_exam_question">
+ <table class="pull-right table-bordered" style="width:1180px">
+  <tr>
+    <th>Question</th>
+    <th>Option 1</th>
+    <th>Option 2</th>
+    <th>Option 3</th>
+    <th>Option 4</th>
+    <th>Answer</th>
+    <th>&nbsp;</th>
+  </tr>
+   {% for  i in res   %}
+  <tr>
+    <td>{{ i['question'] }}</td>
+    <td>{{ i['option1'] }}</td>
+    <td>{{ i['option2'] }}</td>
+    <td>{{ i['option3'] }}</td>
+    <td>{{ i['option4'] }}</td>
+    <td>{{ i['answer'] }}</td>
+    <td><a href="/t_edit_exam_question/{{ i['qid'] }}" class="btn btn-info">Edit<br></a></td>
+       <td> <a href="/t_delete_exam_question/{{ i['qid'] }}" class="btn btn-danger">Delete</a></td>
+  </tr>
+   {% endfor %}
+</table>
+
+</form>
+{% endblock %}

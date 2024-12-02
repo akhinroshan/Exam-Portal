@@ -1,0 +1,19 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/upload_notif_post">
+  <table class="table table-borderless" style="width:700px;height:200px" align="center">
+    <tr>
+      <th>Notification</th>
+    </tr>
+    <tr>
+      <td>
+      <textarea name="text" id="text" cols="45" rows="5" class="form-control" required></textarea></td>
+    </tr>
+    <tr>
+      <td><div align="center">
+        <input type="submit" name="Submit" id="Submit" value="Upload" class="btn btn-success"/>
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

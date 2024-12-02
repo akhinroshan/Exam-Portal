@@ -1,0 +1,46 @@
+{% extends 'admin.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table  class="table table-bordered">
+<h2>Welcome Admin</h2>
+
+    <br/><br/>
+
+    <div>
+      <table>
+        <tr>
+          <h3>Registered Institutions</h3>
+        </tr>
+          {% for i in accepted %}
+        <tr>
+            <td>{{ loop.index }}. </td>
+          <td>{{ i['name'] }}, {{ i['place'] }}<br/></td>
+        </tr>
+          {% endfor %}
+      </table>
+    </div>
+
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="bg-white">
+                <div class="d-flex justify-content-center bg-primary py-2 text-white  news" ><span class="d-flex align-items-center">&nbsp;Incoming Requests</span></div>
+
+
+
+            </div>
+
+            <marquee class="news-content" behavior="scroll" width="88%" direction="up" height="400px" onmouseover="this.stop();" onmouseout="this.start();">
+
+                  {% for i in incoming %}
+                    <a href="/incoming_requests">{{ i['name'] }}, {{ i['place'] }} </a><br/><br/> <span class="dot"></span>
+                  {% endfor %}
+                </marquee>
+
+        </div>
+    </div>
+</div>
+
+  </table>
+</form>
+{% endblock %}

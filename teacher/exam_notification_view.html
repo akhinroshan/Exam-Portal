@@ -1,0 +1,49 @@
+{% extends 'teacher.html' %}
+{% block body %}
+<form action="" method="post">
+<table class="pull-right table-bordered" style="width:1180px">
+  <tr>
+    <th>#</th>
+    <th>Subject Name</th>
+    <th>Semester</th>
+    <th>Exam Name</th>
+    <th>Exam Time</th>
+    <th>Exam Date</th>
+    <th>Portions</th>
+    <th>Exam Type</th>
+   <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+
+  </tr>
+  {% for  i in res   %}
+  <tr>
+    <td>{{ loop.index }} &nbsp;</td>
+    <td>{{ i['sub_name'] }}&nbsp;</td>
+    <td>{{ i['semester'] }}</td>
+    <td>{{ i['exam_name'] }}&nbsp;</td>
+    <td>{{ i['exam_time'] }}&nbsp;</td>
+    <td>{{ i['exam_date'] }}&nbsp;</td>
+    <td>{{ i['portions'] }}&nbsp;</td>
+    <td>{{ i['type'] }} </td>
+
+    {% if i['type']=="Viva" %}
+    <td><a href="/t_edit_exam_notification_view/{{ i['exam_id'] }}" class="btn btn-info">Edit</a></td>
+    <td> <a href="/t_view_students/{{ i['exam_id'] }}" class="btn btn-success">Start Viva Session</a></td>
+    <td></td>
+    <td> <a href="/view_results/{{ i['exam_id']  }}" class="btn btn-success">Result</a></td>
+    <td> <a href="/delete_exam/{{ i['exam_id']  }}" class="btn btn-danger" onclick="return confirm('Do you want to delete this?')">Delete</a></td>
+    {% else %}
+    <td><a href="/t_edit_exam_notification_view/{{ i['exam_id'] }}" class="btn btn-info">Edit</a></td>
+    <td> <a href="/t_upload_exam/{{ i['exam_id'] }}" class="btn btn-success">Add Questions</a></td>
+    <td> <a href="/t_view_exam_question/{{ i['exam_id']  }}" class="btn btn-info">View Questions</a></td>
+    <td> <a href="/view_results/{{ i['exam_id']  }}" class="btn btn-success">Result</a></td>
+    <td> <a href="/delete_exam/{{ i['exam_id']  }}" class="btn btn-danger" onclick="return confirm('Do you want to delete this?')">Delete</a></td>
+    {% endif %}
+  </tr>
+  {% endfor %}
+</table>
+
+</form>
+{% endblock %}

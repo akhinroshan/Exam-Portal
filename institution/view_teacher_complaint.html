@@ -1,0 +1,28 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/view_complaint_post">
+  <table  class="table table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Complaint</th>
+      <th>Date &amp; Time</th>
+      <th>Reply</th>
+
+    </tr>
+    {% for i in complaint %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['name'] }}</td>
+      <td>&nbsp;{{ i['email'] }}</td>
+      <td>&nbsp;{{ i['complaint'] }}</td>
+      <td>&nbsp;{{ i['time'] }} <br> {{ i['date'] }}</td>
+      <td>&nbsp;{{ i['status'] }}</td>
+      <td><a href="/send_complaint_reply/{{ i['comp_id'] }}">Send Reply</a></td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

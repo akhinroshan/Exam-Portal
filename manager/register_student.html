@@ -1,0 +1,139 @@
+{% extends 'manager.html' %}
+{% block body %}
+<form action="/register_student_post" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+ 
+  <tr>
+    <th width="78">Name</th>
+    <td width="507"><input type="text" name="textfield" id="textfield" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td><p>
+      <label>
+        <input type="radio" name="RadioGroup1" value="Male" id="RadioGroup1_0"  required/>
+        Male
+        </label> <br>
+       <label>
+        <input type="radio" name="RadioGroup1" value="Female" id="RadioGroup1_1"  required/>
+        Female        </label><br>
+       <input type="radio" name="RadioGroup1" value="Other" id="RadioGroup1_2"  required/>
+       Other
+        <br />
+      </p></td>
+  </tr>
+  <tr>
+    <th>Date of Birth</th>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th>Photo</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="111">Semester</th>
+    <td>
+      1
+      <input type="radio" name="Semester" id="Semester1" value="1"  required/><br><br>2
+
+      <input type="radio" name="Semester" id="Semester2" value="2"  required/><br><br>
+
+     3
+     <input type="radio" name="Semester" id="Semester3" value="3"  required/><br><br>
+
+     4
+     <input type="radio" name="Semester" id="Semester4" value="4"  required/><br><br>
+     5
+
+     <input type="radio" name="Semester" id="Semester5" value="5"  required/><br><br>
+     6
+
+     <input type="radio" name="Semester" id="Semester6" value="6"  required/><br><br>
+
+     7
+     <input type="radio" name="Semester" id="Semester7" value="7" required/><br><br>
+     8
+
+     <input type="radio" name="Semester" id="Semester8" value="8"  required/><br><br>
+
+     
+      
+      </td>
+    
+  </tr>
+
+  <tr>
+    <th>Course</th>
+    <td>
+      <select name="course" id="course" class="form-control" required>
+        <option>--select--</option>
+          {% for i in course %}
+          <option value="{{ i['course_id'] }}">{{ i['course_name'] }}</option>
+          {% endfor %}
+      </select></td>
+  </tr>
+  <tr>
+    <th height="59">Email</th>
+    <td><label for="email"></label>
+      <input type="text" name="email2" id="email" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th height="59">Contact 1</th>
+    <td><label for="contact1"></label>
+      <input type="text" name="contact1" id="contact1" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="59">Contact 2</th>
+    <td><label for="contact2"></label>
+      <input type="text" name="contact2" id="contact2" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="59">Place</th>
+    <td><label for="place"></label>
+      <label for="place"></label>
+      <input type="text" name="place" id="place" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="73">Post</th>
+    <td><label for="post"></label>
+      <input type="text" name="post" id="post" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="81">District</th>
+    <td><label for="district"></label>
+      <input type="text" name="district" id="district" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="71">Pin</th>
+    <td><label for="pin"></label>
+      <input type="text" name="pin" id="pin" class="form-control" /></td>
+  </tr>
+
+
+
+
+  <tr>
+    <th>Guardian Name</th>
+    <td>
+      <input type="text" name="parent" id="parent_name" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th>Email of Guardian</th>
+    <td><label for="email"></label>
+      <input type="text" name="email" id="par_email" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th>Contact Number of Guardian</th>
+    <td>
+      <input type="text" name="contact" id="par_contact" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center">
+      <input type="submit" name="Submit" id="Submit" value="Save" class="btn btn-success"/>
+<!--      <input type="submit" name="Reset" id="Reset" value="Reset" />-->
+    </div></td>
+    </tr>
+</table>
+</form>
+{% endblock %}

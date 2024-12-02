@@ -1,0 +1,72 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/mangr_mang_post" enctype="multipart/form-data">
+  <table class="table table-bordered">
+    <tr>
+      <th>Image</th>
+      <td><input type="file" name="filefield" class="form-control" class="form-control" /></td>
+    </tr>
+    <tr>
+      <th width="105">Manager Name</th>
+      <td width="95">
+      <input type="text" name="manager" id="manager" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Date of Birth</th>
+      <td><input type="date" name="textfield2" id="textfield2" class="form-control" required/>
+      
+      </td>
+
+    <tr>
+    <th>Gender</th>
+    <td>
+      <input type="radio" name="radio" value="Male" required/>Male <br> <br>
+      <input type="radio" name="radio" value="feMale"  required/> Female <br><br>
+      <input type="radio" name="radio" value="other"  required/> Other</td> <br><br>
+  </tr>
+    <tr>
+      <th>Qualification</th>
+      <td>
+      <input type="text" name="qualification" id="qualification"  class="form-control" /></td>
+    </tr>
+    <tr>
+      <th>Contact1</th>
+      <td><label for="contact1"></label>
+      <input type="text" name="contact1" id="contact1" class="form-control" /></td>
+    </tr>
+    <tr>
+      <th>Contact2</th>
+      <td>
+      <input type="text" name="contact2" id="contact2" class="form-control" /></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><label for="email"></label>
+      <input type="text" name="email" id="email" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Place</th>
+      <td><input name="adrs1" id="address" class="form-control" /></td>
+    </tr>
+    <tr>
+    <th>Post</th>
+    <td> <input type="text" name="adr2" id="adr2" class="form-control" /></td></td>
+    </tr>
+    <tr>
+      <th>District</th>
+      <td>
+       <input type="text" name="adr3" id="adrs3" class="form-control" /></td>
+    </tr>
+     <tr>
+      <th>Pincode</th>
+       <td><input type="text" name="adrs4" id="adrs4" class="form-control" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" id="Submit" value="Submit" class="btn btn-success"/>
+<!--        <input type="submit" name="Reset" id="Reset" value="Reset" />-->
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

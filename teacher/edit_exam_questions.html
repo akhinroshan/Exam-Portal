@@ -1,0 +1,39 @@
+{% extends 'teacher.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/t_edit_exam_post">
+  <table class="table table-bordered">
+
+    <tr>
+      <th>Question <input type="hidden" name="qid" id="qid" value="{{ res['qid'] }}" /></th>
+      <td><input type="text" name="textfield2" id="textfield2" value="{{ res['question'] }}" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <th>Option-1</th>
+      <td><input type="text" name="textfield3" id="textfield3" value="{{ res['option1'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Option-2</th>
+      <td><input type="text" name="textfield4" id="textfield4" value="{{ res['option2'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Option-3</th>
+      <td><input type="text" name="textfield6" id="textfield6" value="{{ res['option3'] }}" class="form-control" required"/></td>
+    </tr>
+    <tr>
+      <th>Option-4</th>
+      <td><input type="text" name="textfield7" id="textfield7" value="{{ res['option4'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Answer</th>
+      <td><input type="text" name="textfield8" id="textfield8" value="{{ res['answer'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Edit" id="Edit" value="Edit" class="btn btn-info"/>
+
+      </div></td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

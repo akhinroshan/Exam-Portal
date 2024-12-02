@@ -1,0 +1,51 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" action="" method="get">
+<h2>Welcome {{ inst['name'] }}</h2>
+    <br/>
+
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bg-white">
+                <div class="d-flex justify-content-center bg-primary py-2 text-white  news" ><span class="d-flex align-items-center">&nbsp;Scheduled Exams</span></div>
+
+
+
+            </div>
+
+            <marquee class="news-content" behavior="scroll" width="88%" direction="up" height="300px">
+
+                  {% for i in exam %}
+                    <a href="#">{{ i['type'] }} type {{ i['sub_name'] }} {{ i['exam_name'] }} exam for {{ i['course_name'] }} is scheduled on {{ i['exam_date'] }} at {{ i['exam_time'] }}.</a><br/><br/><br/> <span class="dot"></span>
+                  {% endfor %}
+                </marquee>
+        </div>
+    </div>
+    </div>
+
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-between align-items-center breaking-news bg-white">
+                <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-primary py-1 text-white px-1 news"><span class="d-flex align-items-center">&nbsp;Uploaded Notifications</span></div>
+                <marquee class="news-scroll" behavior="scroll" direction="left" >
+                {% for i in notif %}
+                    <a href="/view_uploaded_notif">{{ i['notification'] }} <span class="dot"></span></a> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+               {% endfor %}
+
+                </marquee>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <br/><br/>
+
+
+
+
+
+
+</form>
+{% endblock %}

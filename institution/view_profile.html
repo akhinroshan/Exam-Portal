@@ -1,0 +1,39 @@
+{% extends 'institution.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+
+    <tr>
+      <td colspan="2"><img src="{{ profile['image'] }}" alt="img"  height="100%" width="100%" ></td>
+    </tr>
+
+    <tr>
+      <th width="170">Name</th>
+      <td width="162">{{ profile['name'] }}</td>
+    </tr>
+    <tr>
+      <th>Contact</th>
+      <td> {{ profile['contact1'] }} <br/> {{ profile['contact2'] }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>&nbsp;{{ profile['email'] }}</td>
+    </tr>
+    <tr>
+      <th>Website</th>
+      <td>&nbsp;{{ profile['website'] }}</td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td>{{ profile['place'] }}<br/>{{ profile['post'] }}<br/>{{ profile['district'] }}<br/>{{ profile['pin'] }}<br/></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><a href="/edit_profile" class="btn btn-info">Edit Your Profile</a></td>
+    </tr>
+
+  </table>
+
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'teacher.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/view_allocated_subject">
+  <table class="table table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Department</th>
+      <th>Subject Name</th>
+      <th>Semester</th>
+    </tr>
+    {% for i in res%}
+    <tr>
+      <td>&nbsp;{{ loop.index}}</td>
+      <td>&nbsp;{{ i['dname'] }}</td>
+      <td>&nbsp;{{ i['sub_name'] }}</td>
+      <td>{{ i['semester'] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

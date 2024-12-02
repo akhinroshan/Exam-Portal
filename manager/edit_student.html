@@ -1,0 +1,122 @@
+{% extends 'manager.html' %}
+{% block body %}
+<form action="/m_edit_student_post" method="post" enctype="multipart/form-data">
+<table class="table table-bordered">
+  <tr>
+      <td colspan="2" align="center"><img src="{{ student['image'] }}" width="70%" height="70%"></td>
+    </tr>
+
+  <tr>
+    <th width="78">Name
+
+      <input type="hidden" name="s_id" value="{{ student['stud_id'] }}"/>
+      <input type="hidden" name="p_id" value="{{ student['par_id'] }}"/>
+
+
+
+
+    </th>
+    <td width="507"><input type="text" name="textfield" id="textfield" value="{{ student['name'] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td>
+        <input type="text" name="RadioGroup1" value="{{ student['gender'] }}" id="RadioGroup1_0" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th>Date of Birth</th>
+    <td><input type="date" name="textfield2" id="textfield2" value="{{ student['dob'] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th>Photo</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" value="{{ student['image'] }}" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="111">Semester</th>
+    <td>
+      <input type="text" name="Semester" id="Semester1" value="{{ student['semester'] }}" class="form-control" required/>
+      </td>
+
+  </tr>
+
+  <tr>
+    <th>Course</th>
+    <td>
+      <select name="course" id="course" class="form-control" required>
+          {% for i in res1 %}
+        {% if res1['course_name'] == i['course_name'] %}
+
+          <option value="{{ i['course_id'] }}" selected>{{ i['course_name'] }}</option>
+
+        {% else %}
+
+          <option value="{{ i['course_id'] }}" >{{ i['course_name'] }}</option>
+
+        {% endif %}
+          {% endfor %}
+      </select></td>
+  </tr>
+  <tr>
+    <th height="59">Email</th>
+    <td>
+      <input type="text" name="email2" id="email" value="{{ student['email'] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th height="59">Contact 1</th>
+    <td>
+      <input type="text" name="contact1" id="contact1" value="{{ student['contact1'] }}" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="59">Contact 2</th>
+    <td><label for="contact2"></label>
+      <input type="text" name="contact2" id="contact2" value="{{ student['contact2'] }}" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="59">Place</th>
+    <td>
+      <input type="text" name="place" id="place" value="{{ student['place'] }}" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="73">Post</th>
+    <td><label for="post"></label>
+      <input type="text" name="post" id="post" value="{{ student['post'] }}" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="81">District</th>
+    <td><label for="district"></label>
+      <input type="text" name="district" id="district" value="{{ student['district'] }}" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th height="71">Pin</th>
+    <td>
+      <input type="text" name="pin" id="pin" value="{{ student['pin'] }}" class="form-control" /></td>
+  </tr>
+
+
+
+
+  <tr>
+    <th>Guardian Name</th>
+    <td>
+      <input type="text" name="parent" id="parent_name" value="{{ student['par_name'] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th>Email of Guardian</th>
+    <td><label for="email"></label>
+      <input type="text" name="email" id="par_email" value="{{ student['par_email'] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th>Contact Number of Guardian</th>
+    <td>
+      <input type="text" name="contact" id="par_contact" value="{{ student['phone'] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center">
+      <input type="submit" name="Submit" id="Submit" value="Update" class="btn btn-success"/>
+<!--      <input type="submit" name="Reset" id="Reset" value="Reset" />-->
+    </div></td>
+    </tr>
+</table>
+</form>
+{% endblock %}

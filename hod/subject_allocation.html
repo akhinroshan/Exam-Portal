@@ -1,0 +1,40 @@
+{% extends 'hod.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/hod_sub_alloc_post">
+  <table class="table table-bordered">
+    <tr>
+      <th width="50">Course</th>
+      <td width="103"><label for="course"></label>
+        <select name="course" id="course" class="form-control" required>
+          <option>--select--</option>
+          {% for i in course %}
+          <option value="{{ i['course_id'] }}">{{ i['course_name'] }}</option>
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <th>Subject</th>
+      <td><label for="subject"></label>
+        <select name="subject" id="subject" class="form-control" required>
+          <option>--select--</option>
+          {% for i in subject %}
+          <option value="{{ i['sub_id'] }}">{{ i['sub_name'] }}</option>
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <th height="45">Teacher</th>
+      <td><label for="teacher"></label>
+        <select name="teacher" id="teacher" class="form-control" required>
+          <option>--select--</option>
+          {% for i in teacher %}
+          <option value="{{ i['teach_id'] }}">{{ i['name'] }}</option>
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td height="45" colspan="2"><input type="submit" name="button" id="button" value="Assign" class="btn btn-success"/></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

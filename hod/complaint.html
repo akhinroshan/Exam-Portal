@@ -1,0 +1,17 @@
+{% extends 'hod.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/hod_complaint_post">
+  <table class="pull-right" style="width:500px">
+    <tr>
+      <th>Complaint</th>
+    </tr>
+    <tr>
+      <td>
+      <textarea name="text" id="text" cols="45" rows="5" class="form-control" required></textarea></td>
+    </tr>
+    <tr>
+      <td height="61"><input type="submit" name="Send" id="Send" value="Send" class="btn btn-success"/></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

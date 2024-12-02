@@ -1,0 +1,38 @@
+{% extends 'hod.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/hod_view_teacher_post">
+
+
+ <table class="pull-right" style="width:500px" >
+   <tr>
+     <td><input type="text" name="search" id="search" class="form-control"/></td>
+     <td><input type="button" value="Search" class="btn btn-success"/></td>
+
+   </tr>
+ </table>
+  <table class="pull-right table-bordered" style="width:1180px">
+    <tr>
+      <th>#</th>
+      <th>Teacher Name</th>
+      <th>Date of Birth</th>
+      <th>Gender</th>
+      <th>Qualification</th>
+      <th>Contact</th>
+      <th>Email</th>
+      <th>Address</th>
+    </tr>
+    {% for i in teacher %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;<img src="{{ i['image'] }}" alt="" width="80px" height="80px"/> <br/> {{ i['name'] }}</td>
+      <td>&nbsp;{{ i['dob'] }}</td>
+      <td>&nbsp;{{ i['gender'] }}</td>
+      <td>&nbsp;{{ i['qualification'] }}</td>
+      <td>&nbsp;{{ i['contact1'] }} <br/> {{ i['contact2'] }}</td>
+      <td>&nbsp;{{ i['email'] }} </td>
+      <td>{{ i['place'] }} <br/>{{ i['post'] }} <br/>{{ i['district'] }} <br/>{{ i['pin'] }} <br/></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

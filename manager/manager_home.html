@@ -1,0 +1,27 @@
+{% extends 'manager.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+<h2>Welcome {{ manager['name'] }}</h2>
+
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bg-white">
+                <div class="d-flex justify-content-center bg-primary py-2 text-white  news" ><span class="d-flex align-items-center">&nbsp;Notifications</span></div>
+
+
+
+            </div>
+
+            <marquee class="news-content" behavior="scroll" width="88%" direction="up" height="500px">
+
+                  {% for i in notif %}
+                    <a href="#">{{ i['notification'] }}</a><br/><br/><br/> <span class="dot"></span>
+                  {% endfor %}
+                </marquee>
+        </div>
+    </div>
+    </div>
+
+</form>
+{% endblock %}

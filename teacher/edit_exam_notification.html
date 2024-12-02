@@ -1,0 +1,41 @@
+{% extends 'teacher.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/t_exam_notif_view_post">
+  <table class="table table-bordered">
+    <tr>
+      <th>Subject Name<input type="hidden" name="exam_id" value="{{ data['exam_id'] }}"></th>
+      <td>
+        <select name="textfield" id="select" class="form-control" required>
+
+            {%  for i in subject %}
+
+          <option value="{{ i['sub_id']  }}">{{ i['sub_name'] }}</option>
+          {% endfor %}
+</select>
+
+      </td>
+    </tr>
+    <tr>
+      <th>Exam Name</th>
+      <td><input type="text" name="textfield2" id="textfield2" value="{{ data['exam_name'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Exam Time</th>
+      <td><input type="time" name="textfield3" id="textfield3" value="{{ data['exam_time'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Exam Date</th>
+      <td><input type="date" name="textfield4" id="textfield4" value="{{ data['exam_date'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th>Portions</th>
+      <td><input type="text" name="textfield5" id="textfield5" value="{{ data['portions'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input name="Edit" type="submit" value="Edit" class="btn btn-info"/>
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

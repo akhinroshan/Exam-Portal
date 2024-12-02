@@ -1,0 +1,23 @@
+{% extends 'student.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/view_complaint_post">
+  <table class="table table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Complaint</th>
+      <th>Date &amp; Time</th>
+      <th>Status of Issue</th>
+      <th>Reply</th>
+    </tr>
+    {% for i in a %}
+    <tr>
+      <td>&nbsp;{{ loop.index  }}</td>
+      <td>{{  i['complaint'] }}&nbsp;</td>
+      <td>{{ i['date']  }}<br>{{ i['time'] }} &nbsp;</td>
+      <td>&nbsp;{{ i['status']  }}</td>
+      <td>{{ i['reply']  }}&nbsp;</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

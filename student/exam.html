@@ -1,0 +1,44 @@
+{% extends 'student.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/st_exam_post">
+  <table class="table table-bordered">
+    <tr><input type="hidden" name="examid" value="{{ m['examid'] }}"/>
+      <input type="hidden" name="stud_id" value="{{ stud['stud_id'] }}"/>
+      <input type="hidden" name="question_id" value="{{ m['qid'] }}"/>
+      <td>&nbsp;
+
+
+      <div class="row">
+        <div class="col-9">{{ m['question'] }}</div>
+        <div class="col-3">Remaining Questions - {{ session.ab }}</div>
+      </div>
+
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="radio" name="radio" id="opt1" value="{{ m['option1'] }}"  />
+        <label for="opt1"></label>{{ m['option1'] }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="radio" name="radio" id="opt2" value="{{ m['option2'] }}" />
+      <label for="opt2"></label>{{ m['option2'] }}</td>
+    </tr>
+    <tr>
+      <td> <input type="radio" name="radio" id="opt3" value="{{ m['option3'] }}"  />
+      <label for="opt3"></label>{{ m['option3'] }}</td>
+    </tr>
+    <tr>
+      <td><input type="radio" name="radio" id="opt4" value="{{ m['option4'] }}"  />
+      <label for="opt4"></label>{{ m['option4'] }}</td>
+    </tr>
+    <tr>
+      <td><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-success" /></td>
+    </tr>
+  </table>
+  
+</form>
+{% endblock %}
